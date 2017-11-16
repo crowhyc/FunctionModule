@@ -1,0 +1,12 @@
+{
+  "groups": [
+    {
+      "name": "common",
+      "type": "com.javanewb.common.configuration.properties.CommonProperties",
+      "sourceType": "com.javanewb.common.configuration.properties.CommonProperties"
+    }
+  ],
+  "properties": [
+  ],
+  "hints": []
+}
