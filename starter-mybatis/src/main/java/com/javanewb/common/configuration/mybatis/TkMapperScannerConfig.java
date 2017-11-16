@@ -24,7 +24,6 @@
 
 package com.javanewb.common.configuration.mybatis;
 
-import com.calm.logger.annotation.Logger;
 import lombok.extern.log4j.Log4j;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
@@ -55,7 +54,6 @@ public class TkMapperScannerConfig {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setBasePackage("com.javanewb.**.dao,com.javanewb.**.mapper,com.javanewb.**.mapper");
         mapperScannerConfigurer.setMarkerInterface(CommonsMapper.class);
-        mapperScannerConfigurer.setAnnotationClass(Logger.class);
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
         MapperHelper mapperHelper = new MapperHelper();
         Properties properties = new Properties();
