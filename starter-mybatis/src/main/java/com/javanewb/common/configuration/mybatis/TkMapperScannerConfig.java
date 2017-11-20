@@ -24,17 +24,20 @@
 
 package com.javanewb.common.configuration.mybatis;
 
+import com.javanewb.common.configuration.properties.CommonProperties;
 import lombok.extern.log4j.Log4j;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import tk.mybatis.mapper.mapperhelper.MapperHelper;
 import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 
+import java.util.Arrays;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 /**
  * MyBatis扫描接口，使用的tk.mybatis.spring.com.javanewb.portalbiz.commons.mapper.MapperScannerConfigurer，如果你不使用通用Mapper，可以改为org.xxx...
@@ -45,14 +48,23 @@ import java.util.Properties;
 @Configuration
 @ConditionalOnBean({MybatisProperties.class, SqlSessionFactory.class})
 @AutoConfigureAfter({MybatisProperties.class, MyBatisConfig.class})
-@ConditionalOnProperty(prefix = "common", name = "mysqlEnabled", havingValue = "true", matchIfMissing = true)
+@EnableConfigurationProperties(CommonProperties.class)
 @Log4j
 public class TkMapperScannerConfig {
+    private final CommonProperties commonProperties;
+
+    public TkMapperScannerConfig(CommonProperties commonProperties) {
+        this.commonProperties = commonProperties;
+    }
 
     @Bean
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-        mapperScannerConfigurer.setBasePackage("com.javanewb.**.dao,com.javanewb.**.mapper,com.javanewb.**.mapper");
+        if (commonProperties.getMapperPath() == null || commonProperties.getMapperPath().length == 0) {
+            mapperScannerConfigurer.setBasePackage("com.javanewb.**.dao,com.javanewb.**.mapper");
+        } else {
+            mapperScannerConfigurer.setBasePackage(Arrays.stream(commonProperties.getMapperPath()).collect(Collectors.joining(",")));
+        }
         mapperScannerConfigurer.setMarkerInterface(CommonsMapper.class);
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
         MapperHelper mapperHelper = new MapperHelper();

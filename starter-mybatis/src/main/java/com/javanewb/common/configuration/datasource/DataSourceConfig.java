@@ -28,7 +28,6 @@ import java.util.Map;
  */
 @Configuration
 @EnableTransactionManagement
-@ConditionalOnProperty(prefix = "common", name = "mysqlEnabled", havingValue = "true", matchIfMissing = true)
 @EnableConfigurationProperties({MasterDBProperties.class, SlaverDBProperties.class, CommonProperties.class, UnionDBProperties.class})
 @RefreshScope
 public class DataSourceConfig {

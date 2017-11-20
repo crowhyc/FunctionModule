@@ -1,0 +1,59 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.javanewb.common.configuration.properties.CommonProperties",
+      "name": "common",
+      "type": "com.javanewb.common.configuration.properties.CommonProperties"
+    },
+    {
+      "sourceType": "com.javanewb.common.configuration.properties.MasterDBProperties",
+      "name": "datasource.master",
+      "type": "com.javanewb.common.configuration.properties.MasterDBProperties"
+    },
+    {
+      "sourceType": "com.javanewb.common.configuration.properties.SlaverDBProperties",
+      "name": "datasource.slave",
+      "type": "com.javanewb.common.configuration.properties.SlaverDBProperties"
+    },
+    {
+      "sourceType": "com.javanewb.common.configuration.properties.UnionDBProperties",
+      "name": "datasource.union",
+      "type": "com.javanewb.common.configuration.properties.UnionDBProperties"
+    },
+    {
+      "sourceType": "com.javanewb.common.configuration.mybatis.MybatisProperties",
+      "name": "mybatis.conf",
+      "type": "com.javanewb.common.configuration.mybatis.MybatisProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.javanewb.common.configuration.properties.CommonProperties",
+      "name": "common.mapper-path",
+      "type": "java.lang.String[]"
+    },
+    {
+      "sourceType": "com.javanewb.common.configuration.properties.CommonProperties",
+      "defaultValue": false,
+      "name": "common.r-w-split-enabled",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.javanewb.common.configuration.properties.CommonProperties",
+      "name": "common.write-d-b-names",
+      "type": "java.util.List<java.lang.String>"
+    },
+    {
+      "sourceType": "com.javanewb.common.configuration.mybatis.MybatisProperties",
+      "name": "mybatis.conf.entity-path",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.javanewb.common.configuration.mybatis.MybatisProperties",
+      "defaultValue": false,
+      "name": "mybatis.conf.open-xml-scan",
+      "type": "java.lang.Boolean"
+    }
+  ]
+}

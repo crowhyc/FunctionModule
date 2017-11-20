@@ -1,0 +1,59 @@
+{
+  "groups": [
+    {
+      "name": "common",
+      "type": "com.javanewb.common.configuration.properties.CommonProperties",
+      "sourceType": "com.javanewb.common.configuration.properties.CommonProperties"
+    },
+    {
+      "name": "common.swagger",
+      "type": "com.javanewb.common.configuration.SwaggerConfigProperties",
+      "sourceType": "com.javanewb.common.configuration.SwaggerConfigProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "common.swagger.api-info.description",
+      "type": "java.lang.String",
+      "sourceType": "com.javanewb.common.configuration.SwaggerConfigProperties$ApiInfoConfig",
+      "description": "Define application description.",
+      "defaultValue": "common application rest api."
+    },
+    {
+      "name": "common.swagger.api-info.title",
+      "type": "java.lang.String",
+      "sourceType": "com.javanewb.common.configuration.SwaggerConfigProperties$ApiInfoConfig",
+      "description": "Define application title.",
+      "defaultValue": "common API"
+    },
+    {
+      "name": "common.swagger.api-info.version",
+      "type": "java.lang.String",
+      "sourceType": "com.javanewb.common.configuration.SwaggerConfigProperties$ApiInfoConfig",
+      "description": "Define Api Version.",
+      "defaultValue": "1.0.0"
+    },
+    {
+      "name": "common.swagger.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.javanewb.common.configuration.SwaggerConfigProperties",
+      "description": "Whether to enable Swagger2.",
+      "defaultValue": false
+    },
+    {
+      "name": "common.swagger.path-mapping",
+      "type": "java.lang.String",
+      "sourceType": "com.javanewb.common.configuration.SwaggerConfigProperties",
+      "description": "Swagger path mapping",
+      "defaultValue": "/"
+    },
+    {
+      "name": "common.swagger.path-regex",
+      "type": "java.lang.String",
+      "sourceType": "com.javanewb.common.configuration.SwaggerConfigProperties",
+      "description": "Swagger path regex string.",
+      "defaultValue": "/*"
+    }
+  ],
+  "hints": []
+}

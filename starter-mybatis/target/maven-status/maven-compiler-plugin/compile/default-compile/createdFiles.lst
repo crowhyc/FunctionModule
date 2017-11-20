@@ -1,0 +1,14 @@
+com/javanewb/common/configuration/properties/MasterDBProperties.class
+com/javanewb/common/configuration/datasource/DataSourceConfig.class
+com/javanewb/common/configuration/mybatis/CommonsMapper.class
+com/javanewb/common/configuration/properties/DBProperties.class
+com/javanewb/common/configuration/datasource/DynamicDataSource$JdbcType.class
+com/javanewb/common/configuration/properties/CommonProperties.class
+com/javanewb/common/configuration/datasource/WriterReadDSAspector.class
+com/javanewb/common/configuration/properties/UnionDBProperties.class
+com/javanewb/common/exception/TkMybatisInitException.class
+com/javanewb/common/configuration/datasource/DynamicDataSource.class
+com/javanewb/common/configuration/mybatis/TkMapperScannerConfig.class
+com/javanewb/common/configuration/mybatis/MybatisProperties.class
+com/javanewb/common/configuration/mybatis/MyBatisConfig.class
+com/javanewb/common/configuration/properties/SlaverDBProperties.class
