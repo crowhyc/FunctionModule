@@ -25,8 +25,10 @@
 package com.javanewb.common.configuration.mybatis;
 
 import com.javanewb.common.configuration.properties.CommonProperties;
+import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -50,12 +52,11 @@ import java.util.stream.Collectors;
 @AutoConfigureAfter({MybatisProperties.class, MyBatisConfig.class})
 @EnableConfigurationProperties(CommonProperties.class)
 @Log4j
+@NoArgsConstructor
 public class TkMapperScannerConfig {
-    private final CommonProperties commonProperties;
+    @Autowired
+    private CommonProperties commonProperties;
 
-    public TkMapperScannerConfig(CommonProperties commonProperties) {
-        this.commonProperties = commonProperties;
-    }
 
     @Bean
     public MapperScannerConfigurer mapperScannerConfigurer() {
