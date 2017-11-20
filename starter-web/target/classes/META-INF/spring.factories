@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.javanewb.common.configuration.WebMvcConfig,com.javanewb.common.configuration.HttpClientConfiguration,com.javanewb.common.configuration.FilterConfig,com.javanewb.common.configuration.SwaggerAutoConfiguration
