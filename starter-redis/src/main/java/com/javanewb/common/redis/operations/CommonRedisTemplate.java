@@ -29,4 +29,5 @@ public class CommonRedisTemplate<V> extends RedisTemplate<String, V> {
         }
         return commonSetOperations;
     }
+
 }

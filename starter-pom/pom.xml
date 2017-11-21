@@ -11,5 +11,11 @@
     <artifactId>starter-pom</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>1.5.7.RELEASE</version>
+        </dependency>
+    </dependencies>
 </project>

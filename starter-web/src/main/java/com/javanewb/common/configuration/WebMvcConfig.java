@@ -23,7 +23,6 @@ import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
 
-@Configuration
 @EnableAspectJAutoProxy
 @EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurationSupport {

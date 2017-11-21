@@ -40,7 +40,6 @@ import java.util.Properties;
  * @author Dean.Hwang
  * date: 2016/9/26 10:41
  */
-@Configuration
 @AutoConfigureAfter({MybatisProperties.class, DataSourceConfig.class})
 @EnableConfigurationProperties(MybatisProperties.class)
 public class TkMapperScannerConfig {

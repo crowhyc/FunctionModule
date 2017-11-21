@@ -27,7 +27,6 @@ import javax.annotation.PostConstruct;
 /**
  * Created by Dean.Hwang on 2016/8/24.
  */
-@Configuration
 @EnableSwagger2
 @ConditionalOnWebApplication
 @AutoConfigureAfter(WebMvcAutoConfiguration.class)

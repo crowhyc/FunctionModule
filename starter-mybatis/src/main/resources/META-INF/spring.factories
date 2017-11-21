@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.javanewb.common.configuration.datasource.DataSourceConfig,com.javanewb.common.configuration.mybatis.TkMapperScannerConfig,com.javanewb.common.configuration.mybatis.MyBatisConfig
+

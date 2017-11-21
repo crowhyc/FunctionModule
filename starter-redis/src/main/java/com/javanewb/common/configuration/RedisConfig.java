@@ -3,6 +3,8 @@ package com.javanewb.common.configuration;
 import com.javanewb.common.redis.RedisKeyFactory;
 import com.javanewb.common.redis.operations.CommonRedisTemplate;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,9 +17,8 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
  * @author Dean.Huwang
  * date: 2016/10/11 15:05
  */
-@EnableRedisRepositories
-@Configuration
 @RefreshScope
+@EnableRedisRepositories
 public class RedisConfig {
     @Value("${info.appName}")
     private String pdu;
@@ -28,6 +29,7 @@ public class RedisConfig {
     }
 
     @Bean
+    @ConditionalOnMissingBean
     public <V> RedisTemplate<String, V> redisTemplate(
             JedisConnectionFactory jedisConnectionFactory) {
         jedisConnectionFactory.afterPropertiesSet();
@@ -40,7 +42,8 @@ public class RedisConfig {
     }
 
 
-    @Bean(name = "commonRedisTemplate")
+    @Bean
+    @ConditionalOnMissingBean
     public <V> CommonRedisTemplate<V> commonRedisTemplate(
             JedisConnectionFactory jedisConnectionFactory) {
         jedisConnectionFactory.afterPropertiesSet();
