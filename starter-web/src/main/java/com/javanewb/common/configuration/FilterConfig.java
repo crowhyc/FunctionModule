@@ -1,5 +1,6 @@
 package com.javanewb.common.configuration;
 
+import com.javanewb.common.filter.LoggerMDCFilter;
 import com.javanewb.common.filter.RequestContextInitFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -20,6 +21,7 @@ public class FilterConfig {
     public FilterRegistrationBean requestContextInitFilter() {
         FilterRegistrationBean registrationBean = new FilterRegistrationBean(new RequestContextInitFilter());
         registrationBean.addUrlPatterns("/*");
+        registrationBean.setOrder(FilterRegistrationBean.REQUEST_WRAPPER_FILTER_MAX_ORDER - 29999);
         return registrationBean;
     }
 
@@ -34,4 +36,11 @@ public class FilterConfig {
         return registrationBean;
     }
 
+    @Bean
+    public FilterRegistrationBean loggerMDCFilter() {
+        FilterRegistrationBean registrationBean = new FilterRegistrationBean(new LoggerMDCFilter());
+        registrationBean.addUrlPatterns("/*");
+        registrationBean.setOrder(FilterRegistrationBean.REQUEST_WRAPPER_FILTER_MAX_ORDER-30000);
+        return registrationBean;
+    }
 }

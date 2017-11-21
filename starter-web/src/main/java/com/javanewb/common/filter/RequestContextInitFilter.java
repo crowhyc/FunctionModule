@@ -17,7 +17,6 @@ import java.io.IOException;
  *
  * @author Dean.Hwang
  */
-@Component
 @Data
 public class RequestContextInitFilter implements Filter {
 

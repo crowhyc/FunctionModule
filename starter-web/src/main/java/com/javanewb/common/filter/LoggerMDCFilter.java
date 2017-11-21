@@ -2,7 +2,6 @@ package com.javanewb.common.filter;
 
 import com.javanewb.common.configuration.util.UUIDUtil;
 import org.slf4j.MDC;
-import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +12,6 @@ import java.io.IOException;
  *
  * @author Dean.Hwang
  */
-@Component
 public class LoggerMDCFilter implements Filter {
     public static final String IDENTIFIER = "IDENTIFIER";
     public static final String URI_KEY = "URI";
