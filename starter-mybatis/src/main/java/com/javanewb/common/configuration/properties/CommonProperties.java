@@ -20,5 +20,4 @@ import java.util.List;
 public class CommonProperties {
     private List<String> writeDBNames;
     private boolean rWSplitEnabled;
-    private String[] mapperPath;
 }

@@ -11,6 +11,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
@@ -26,7 +27,7 @@ import java.util.Properties;
  */
 @Configuration
 @AutoConfigureAfter({MybatisProperties.class, DataSourceConfig.class})
-
+@EnableConfigurationProperties(MybatisProperties.class)
 public class MyBatisConfig {
     @Autowired
     private MybatisProperties mybatisProperties;

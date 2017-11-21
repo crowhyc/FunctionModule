@@ -24,48 +24,30 @@
 
 package com.javanewb.common.configuration.mybatis;
 
-import com.javanewb.common.configuration.properties.CommonProperties;
-import lombok.NoArgsConstructor;
-import lombok.extern.log4j.Log4j;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.javanewb.common.configuration.datasource.DataSourceConfig;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import tk.mybatis.mapper.mapperhelper.MapperHelper;
 import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 
-import java.util.Arrays;
 import java.util.Properties;
-import java.util.stream.Collectors;
 
 /**
- * MyBatis扫描接口，使用的tk.mybatis.spring.com.javanewb.portalbiz.commons.mapper.MapperScannerConfigurer，如果你不使用通用Mapper，可以改为org.xxx...
+ * MyBatis扫描接口，使用的tk.mybatis.spring.com.javanewb.commons.mapper.MapperScannerConfigurer，如果你不使用通用Mapper，可以改为org.xxx...
  *
  * @author Dean.Hwang
  * date: 2016/9/26 10:41
  */
 @Configuration
-@ConditionalOnBean({MybatisProperties.class, SqlSessionFactory.class})
-@AutoConfigureAfter({MybatisProperties.class, MyBatisConfig.class})
-@EnableConfigurationProperties(CommonProperties.class)
-@Log4j
-@NoArgsConstructor
+@AutoConfigureAfter({MybatisProperties.class, DataSourceConfig.class})
+@EnableConfigurationProperties(MybatisProperties.class)
 public class TkMapperScannerConfig {
-    @Autowired
-    private CommonProperties commonProperties;
 
 
-    @Bean
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-        if (commonProperties.getMapperPath() == null || commonProperties.getMapperPath().length == 0) {
-            mapperScannerConfigurer.setBasePackage("com.javanewb.**.dao,com.javanewb.**.mapper");
-        } else {
-            mapperScannerConfigurer.setBasePackage(Arrays.stream(commonProperties.getMapperPath()).collect(Collectors.joining(",")));
-        }
+        mapperScannerConfigurer.setBasePackage("com.**.dao,com.**.mapper,net.**.dao,net.**.mapper");
         mapperScannerConfigurer.setMarkerInterface(CommonsMapper.class);
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
         MapperHelper mapperHelper = new MapperHelper();
