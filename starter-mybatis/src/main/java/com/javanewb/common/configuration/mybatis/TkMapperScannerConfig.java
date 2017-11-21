@@ -27,6 +27,7 @@ package com.javanewb.common.configuration.mybatis;
 import com.javanewb.common.configuration.datasource.DataSourceConfig;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import tk.mybatis.mapper.mapperhelper.MapperHelper;
 import tk.mybatis.spring.mapper.MapperScannerConfigurer;
@@ -44,7 +45,7 @@ import java.util.Properties;
 @EnableConfigurationProperties(MybatisProperties.class)
 public class TkMapperScannerConfig {
 
-
+    @Bean
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setBasePackage("com.**.dao,com.**.mapper,net.**.dao,net.**.mapper");
