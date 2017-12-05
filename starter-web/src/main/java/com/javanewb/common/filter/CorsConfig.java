@@ -40,7 +40,7 @@ public class CorsConfig {
                     "http://citest.javanewb.com/"
             };
         }
-        return new String[]{};
+        return new String[]{"*"};
     }
 
     @Bean
